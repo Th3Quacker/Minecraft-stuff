@@ -1,0 +1,31 @@
+package com.naquackes;
+
+import java.util.logging.Logger;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import com.naquackes.commands.backrooms;
+import com.naquackes.commands.build;
+import com.naquackes.commands.factions;
+import com.naquackes.commands.hub;
+
+/*
+ * skyblock java plugin
+ */
+public class Plugin extends JavaPlugin
+{
+  private static final Logger LOGGER=Logger.getLogger("custom tp");
+
+  public void onEnable()
+  {
+    LOGGER.info("Custom teleport enabled");
+    getCommand("backrooms").setExecutor(new backrooms());
+    getCommand("hub").setExecutor(new hub());
+    getCommand("build").setExecutor(new build());
+    getCommand("factions").setExecutor(new factions());
+    getCommand("factions").setTabCompleter(new factions());
+  }
+
+  public void onDisable()
+  {
+  }
+}
